@@ -1,6 +1,6 @@
 <template>
     <div class="layout-logo">
-        <img src="@/assets/logo.jpeg" alt="" class="logo">
+        <img src="../../assets/logo.png" alt="" class="logo">
         <span>积云-后台管理系统</span>
     </div>
 </template>
