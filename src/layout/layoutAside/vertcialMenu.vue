@@ -1,6 +1,14 @@
 <script lang="ts" setup>
 import type { MenuItemType } from '@/layout/layoutAside/types/verticalMenuType'
-import { defineAsyncComponent } from 'vue'
+import { computed,defineAsyncComponent } from 'vue'
+import { useLayoutConfigStore } from '../../stores/layoutConfig'
+
+const store = useLayoutConfigStore()
+
+
+const isCollapse = computed(() => {
+  return store.isCollapse
+})
 
 const MenuItem = defineAsyncComponent(() => import('./menuItem.vue'))
 const menuList: MenuItemType[] = [
@@ -131,6 +139,7 @@ const menuList: MenuItemType[] = [
     active-text-color="#ffd04b"
     class="el-menu-vertical-demo"
     text-color="#fff"
+    :collapse="isCollapse"
   >
     <MenuItem :data="menuList"></MenuItem>
   </el-menu>

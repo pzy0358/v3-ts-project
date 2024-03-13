@@ -5,6 +5,9 @@ const dynamicRoutes: RouteRecordRaw[] = [
     path: '/',
     name: 'Layout',
     component: () => import('@/layout/index.vue'),
+    meta: {
+      isBreadcrumb: false
+    },
     children: [
       {
         path: '/home',

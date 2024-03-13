@@ -6,11 +6,11 @@
 import { h, resolveComponent } from 'vue'
 
 const render = () => {
-  if (props.name && props.name?.startsWith('ele')) {
-    return h('ele-icon', { color: props.color, size: props.size }, [
-      h(resolveComponent(props.name))
-    ])
-  }else{
+  if (props.name && props.name?.startsWith('ele-')) {
+    return h(resolveComponent('el-icon'), { color: props.color, size: props.size }, () => {
+      return h(resolveComponent(props.name))
+    })
+  } else {
     return h('i')
   }
 }
@@ -18,7 +18,7 @@ const render = () => {
 const props = withDefaults(
   defineProps<{
     color?: string
-    size: string | number
+    size?: string | number
     name?: string
   }>(),
   {
